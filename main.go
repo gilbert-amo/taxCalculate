@@ -3,7 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/gilbert-amo/taxCalculate/tax"
+	"github.com/gilbert-amo/taxCalculate/tax/tax"
+
 	"os"
 	"strconv"
 	"strings"
