@@ -27,7 +27,7 @@ go get github.com/gilbert-amo/taxCalculate
 ```bash
 
 import (
-    "github.com/gilbert-amo/taxCalculate/tax/tax"
+    "github.com/gilbert-amo/taxCalculate/tax"
 )
 
 ```
