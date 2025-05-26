@@ -40,6 +40,5 @@ var taxes []tax.Tax
 subtotal, total, taxAmounts := tax.CalculateTotal(price, taxes, isInclusive)
 
 
-
  ```
 
