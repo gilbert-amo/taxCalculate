@@ -1,8 +1,9 @@
 package tax
 
 type Tax struct {
-	Name string
-	Rate float64
+	Name        string
+	Rate        float64
+	isInclusive bool
 }
 
 func CalculateTotal(price float64, taxes []Tax, isInclusive bool) (float64, float64, map[string]float64) {
