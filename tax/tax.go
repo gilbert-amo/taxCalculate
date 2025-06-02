@@ -6,7 +6,7 @@ type Tax struct {
 }
 
 func CalculateTotal(price float64, taxes []Tax, isInclusive bool) (float64, float64, map[string]float64) {
-	var subtotal float64
+	var totalExclusivePrice float64
 	taxAmounts := make(map[string]float64)
 	var totalTax float64
 
@@ -17,25 +17,25 @@ func CalculateTotal(price float64, taxes []Tax, isInclusive bool) (float64, floa
 			totalRate += tax.Rate
 		}
 
-		// Calculate subtotal using inclusive formula
-		subtotal = price - (totalRate/(100+totalRate))*price
+		// Calculate totalExclusivePrice using inclusive formula
+		totalExclusivePrice = price - (totalRate/(100+totalRate))*price
 
 		// Calculate individual tax amounts
 		for _, tax := range taxes {
-			taxAmount := (tax.Rate / 100) * subtotal
+			taxAmount := (tax.Rate / 100) * totalExclusivePrice
 			taxAmounts[tax.Name] = taxAmount
 			totalTax += taxAmount
 		}
 	} else {
 		// Exclusive tax calculation
-		subtotal = price
+		totalExclusivePrice = price
 		for _, tax := range taxes {
-			taxAmount := (tax.Rate / 100) * subtotal
+			taxAmount := (tax.Rate / 100) * totalExclusivePrice
 			taxAmounts[tax.Name] = taxAmount
 			totalTax += taxAmount
 		}
 	}
 
-	totalPrice := subtotal + totalTax
-	return subtotal, totalPrice, taxAmounts
+	totalPrice := totalExclusivePrice + totalTax
+	return totalExclusivePrice, totalPrice, taxAmounts
 }
