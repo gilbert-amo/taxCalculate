@@ -57,7 +57,7 @@ func main() {
 
 	fmt.Println("\n=== Calculation Results ===")
 	fmt.Printf("Original Price: GHS%.2f\n", price)
-	fmt.Printf("Subtotal:GHS%.2f\n", subtotal)
+	fmt.Printf("Total exclusive price: GHS%.2f\n", subtotal)
 
 	fmt.Println("\nTax Breakdown:")
 	for name, amount := range taxAmounts {
