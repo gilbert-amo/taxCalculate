@@ -53,11 +53,11 @@ func main() {
 	isInclusive := strings.ToLower(strings.TrimSpace(inclusiveInput)) == "y"
 
 	// Calculate and display results
-	subtotal, total, taxAmounts := tax.CalculateTotal(price, taxes, isInclusive)
+	totalExclusivePrice, total, taxAmounts := tax.CalculateTotal(price, taxes, isInclusive)
 
 	fmt.Println("\n=== Calculation Results ===")
 	fmt.Printf("Original Price: GHS%.2f\n", price)
-	fmt.Printf("Total exclusive price: GHS%.2f\n", subtotal)
+	fmt.Printf("Total exclusive price: GHS%.2f\n", totalExclusivePrice)
 
 	fmt.Println("\nTax Breakdown:")
 	for name, amount := range taxAmounts {
